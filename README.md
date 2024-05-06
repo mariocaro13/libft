@@ -1,4 +1,4 @@
-# libft - My Function Library
+# libft - My 42 Madrid Libft
 
 This repository contains my personal implementation of the `libft` function library.
 
