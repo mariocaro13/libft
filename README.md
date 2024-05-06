@@ -1,6 +1,6 @@
 # libft - My Function Library
 
-This repository contains my personal implementation of the `libft` function library. Here are the available versions:
+This repository contains my personal implementation of the `libft` function library.
 
 ## Versions:
 
