@@ -3,20 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcaro-ro <mcaro-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:24:04 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2024/02/27 14:28:25 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2024/12/17 00:17:35 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void	ft_free_split(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+}
+
 static size_t	ft_strcount(const char *s, char c)
 {
 	size_t	count;
 
-	count = 1;
+	count = 0;
 	while (*s)
 	{
 		if (*s != c)
@@ -41,7 +51,7 @@ static size_t	ft_lenchr(char const *s, size_t start, char c)
 	return (i);
 }
 
-static	int	ft_setstrs(char **arr, char const *s, size_t count, char c)
+static int	ft_setstrs(char **arr, char const *s, size_t count, char c)
 {
 	size_t	i_s;
 	size_t	i_arr;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcaro-ro <mcaro-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:06:41 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2024/02/27 16:22:35 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2024/12/17 00:18:14 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ char	*ft_strtrim(char const *s1, char const *set);
 
 //Split 's' into substrings delimited by 'c'.
 char	**ft_split(char const *s, char c);
+
+//Free the memory alocated by ft_split
+void	ft_free_split(char **arr);
 
 //Returns a string of applying the function 'f' to each character of 's'.
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
