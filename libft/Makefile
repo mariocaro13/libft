@@ -10,8 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Project name
+NAME = libft.a
+
+# Compilation settings
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
+# Source fiiles
 SOURCE = ft_isalpha.c \
 		ft_isascii.c \
 		ft_isdigit.c \
@@ -57,29 +63,32 @@ BONUS = ft_lstnew_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c \
 
+# Objects files
 OBJECTS = $(SOURCE:.c=.o)
 BOBJECTS = $(BONUS:.c=.o)
-NAME = libft.a
 
-all: $(NAME)
-
+# Link object files
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
-
-.PHONY: all bonus clean fclean re
-
-bonus: $(BOBJECTS)
 
 $(BOBJECTS):
 	${CC} ${CFLAGS} -c $(BONUS)
 	ar -rcs ${NAME} ${BOBJECTS}
 
+# Default target to build the project
+all: $(NAME)
+
+bonus: $(BOBJECTS)
+# Clean up object files
 clean:
 	@rm -f $(OBJECTS) $(BOBJECTS)
 
+# Clean up all generated files
 fclean: clean
 	@rm -f $(NAME)
 
+# Rebuild the project
 re: fclean all
 
 .DEFAULT_GOAL := all
+.PHONY: all bonus clean fclean re
