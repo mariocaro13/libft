@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcaro-ro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:06:55 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2024/05/21 12:46:51 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/03/08 22:44:15 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../libft.h"
 
 int	ft_find_char_in_list(const t_list *node, const char c)
 {
