@@ -6,7 +6,7 @@
 /*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:06:41 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2024/12/17 00:18:14 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/03/08 22:12:50 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
+# include "get_next_line_bonus.h"
+
 
 typedef struct s_list
 {
