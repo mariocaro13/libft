@@ -6,7 +6,7 @@
 /*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:06:55 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2025/03/08 22:44:15 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/03/08 23:27:50 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_find_char_in_list(const t_list *node, const char c)
 	while (node)
 	{
 		i = 0;
-		while (node->content[i] && i < INT_MAX)
+		while (((char *)node->content)[i] && i < INT_MAX)
 		{
-			if (node->content[i] == c)
+			if (((char *)node->content)[i] == c)
 				return (1);
 			i++;
 		}
@@ -65,11 +65,11 @@ void	ft_set_content_cleaned(t_list **list_head, char *str)
 
 	last_node = ft_get_last_node(*list_head);
 	i_c = 0;
-	while (last_node->content[i_c] != NEWLINE_CHAR && last_node->content[i_c])
+	while (((char *)last_node->content)[i_c] != NEWLINE_CHAR && ((char *)last_node->content)[i_c])
 		i_c++;
 	i_str = 0;
-	while (last_node->content[i_c] && last_node->content[i_c + 1])
-		str[i_str++] = last_node->content[++i_c];
+	while (((char *)last_node->content)[i_c] && ((char *)last_node->content)[i_c + 1])
+		str[i_str++] = ((char *)last_node->content)[++i_c];
 	str[i_str] = NULL_TERMINATE;
 }
 
@@ -90,7 +90,7 @@ void	ft_clean_list(t_list **list_head)
 	new_head->content = str;
 	new_head->next = NULL;
 	ft_free_list(list_head);
-	if (*(new_head->content) == '\0')
+	if (*((char *)new_head->content) == '\0')
 		return (free(str), free(new_head));
 	*list_head = new_head;
 }

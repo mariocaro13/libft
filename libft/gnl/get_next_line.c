@@ -6,7 +6,7 @@
 /*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:06:41 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2025/03/08 22:44:19 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/03/08 23:24:59 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int	ft_get_linelen(t_list *node)
 	while (node)
 	{
 		i = 0;
-		while (node->content[i])
+		while (((char *)node->content)[i])
 		{
-			if (node->content[i] == NEWLINE_CHAR)
+			if (((char *)node->content)[i] == NEWLINE_CHAR)
 			{
 				len++;
 				return (len);
@@ -113,15 +113,15 @@ void	ft_set_line(t_list *node, char *str)
 	while (node)
 	{
 		i_content = 0;
-		while (node->content[i_content])
+		while (((char *)node->content)[i_content])
 		{
-			if (node->content[i_content] == NEWLINE_CHAR)
+			if (((char *)node->content)[i_content] == NEWLINE_CHAR)
 			{
 				str[i_str++] = NEWLINE_CHAR;
 				str[i_str] = NULL_TERMINATE;
 				return ;
 			}
-			str[i_str++] = node->content[i_content++];
+			str[i_str++] = ((char *)node->content)[i_content++];
 		}
 		node = node->next;
 	}

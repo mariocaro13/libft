@@ -6,7 +6,7 @@
 #    By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/25 19:03:59 by mcaro-ro          #+#    #+#              #
-#    Updated: 2025/03/08 22:18:08 by mcaro-ro         ###   ########.fr        #
+#    Updated: 2025/03/08 23:20:17 by mcaro-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ BONUS = ft_lstnew_bonus.c 				\
 		ft_lstiter_bonus.c				\
 		ft_lstmap_bonus.c 				\
 
+
 # Objects files
 OBJECTS = $(SOURCE:.c=.o)
 BOBJECTS = $(BONUS:.c=.o)
@@ -84,7 +85,8 @@ $(BOBJECTS):
 # Default target to build the project
 all: $(NAME)
 
-bonus: $(BOBJECTS)
+bonus: $(NAME) $(BOBJECTS)
+
 # Clean up object files
 clean:
 	@rm -f $(OBJECTS) $(BOBJECTS)

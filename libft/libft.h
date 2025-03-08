@@ -6,7 +6,7 @@
 /*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:06:41 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2025/03/08 22:43:42 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/03/08 22:49:57 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 typedef struct s_list
 {
-	char			*content;
+	void			*content;
 	struct s_list	*next;
-}		t_list;
+}	t_list;
 
 //Converts a lower-case letter to the corresponding upper-case letter.
 int		ft_toupper(int c);
