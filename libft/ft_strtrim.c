@@ -3,45 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcaro-ro <mcaro-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mcaro-ro <mcaro-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:23:51 by mcaro-ro          #+#    #+#             */
-/*   Updated: 2024/02/27 14:59:20 by mcaro-ro         ###   ########.fr       */
+/*   Updated: 2025/05/30 20:12:37 by mcaro-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_iterate_s1(char const *s1, char const *set)
+static size_t	ft_index_first_nonmember(char const *s1, char const *set)
 {
-	size_t	i_s1;
-	size_t	i_set;
-	int		b_same;
+	size_t	i;
+	size_t	j;
+	bool	found;
 
-	i_s1 = 0;
-	b_same = 1;
-	while (s1[i_s1] != '\0' && b_same)
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		i_set = 0;
-		b_same = 0;
-		while (set[i_set] != '\0')
+		j = 0;
+		found = 0;
+		while (set[j] != '\0')
 		{
-			if (s1[i_s1] == set[i_set])
-				b_same = 1;
-			i_set++;
+			if (s1[i] == set[j])
+			{
+				found = true;
+				break ;
+			}
+			j++;
 		}
-		i_s1++;
+		if (!found)
+			break ;
+		i++;
 	}
-	return (i_s1 - 1);
+	return (i);
 }
 
 static size_t	ft_get_len(char const *aux, char const *set)
 {
 	size_t	i_set;
 	size_t	i_aux;
+	size_t	aux_len;
 
+	aux_len = ft_strlen(aux);
+	if (aux_len == 0)
+		return (0);
 	i_set = 0;
-	i_aux = ft_strlen(aux) - 1;
+	i_aux = aux_len - 1;
 	if (i_aux <= 0)
 		return (0);
 	while (set[i_set] != '\0')
@@ -62,10 +70,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	char	*aux;
 	size_t	len;
+	size_t	start;
 
 	if (!s1 || !set)
 		return (NULL);
-	aux = (char *)s1 + ft_iterate_s1(s1, set);
+	start = ft_index_first_nonmember(s1, set);
+	aux = (char *)s1 + start;
 	len = ft_get_len(aux, set) + 1;
 	str = (char *)ft_calloc(len, sizeof(char));
 	if (str)
