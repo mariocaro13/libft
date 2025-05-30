@@ -57,6 +57,8 @@ static size_t	ft_get_len(char const *aux, char const *set)
 		if (aux[i_aux] == set[i_set])
 		{
 			i_set = 0;
+			if (i_aux == 0)
+				return (0);
 			i_aux--;
 		}
 		else
